@@ -9,6 +9,8 @@ def load_documents():
     for file in os.listdir(DATA_PATH):
         with open(os.path.join(DATA_PATH, file), "r", encoding="utf-8") as f:
             text = f.read()
+            first_line = text.split("\n")[0]
+            title = first_line.replace("Title: ", "").strip()
 
         doc_id = file.replace(".txt", "")
 
@@ -16,7 +18,8 @@ def load_documents():
             Document(
                 page_content=text,
                 metadata={
-                    "doc_id": doc_id
+                    "doc_id": doc_id,
+                    "title": title
                 }
             )
         )
@@ -24,4 +27,4 @@ def load_documents():
     return documents
 
 print("Looking inside:", os.path.abspath(DATA_PATH))
-print("Exists?", os.path.exists(DATA_PATH))
+print('Exists?', os.path.exists(DATA_PATH))

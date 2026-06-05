@@ -5,3 +5,7 @@ __pycache__/
 .ipynb_checkpoints/
 venv/
 .venv/
+
+vector_db/
+doc_vector_db/
+chunk_vector_db/
